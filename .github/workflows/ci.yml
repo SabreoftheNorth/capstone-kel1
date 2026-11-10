@@ -40,7 +40,7 @@ jobs:
           load: true
           tags: ${{ env.IMAGE }}:${{ github.sha }}
       - name: Trivy scan (gagal jika ada HIGH/CRITICAL)
-        uses: aquasecurity/trivy-action@0.24.0
+        uses: aquasecurity/trivy-action@57a97cXpY2GAXeKJwxSqF87BbPzD68Woy5trj8iKS1PPM # v0.35.0
         with:
           image-ref: ${{ env.IMAGE }}:${{ github.sha }}
           severity: HIGH,CRITICAL
