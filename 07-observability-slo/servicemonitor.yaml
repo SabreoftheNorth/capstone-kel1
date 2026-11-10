@@ -1,0 +1,15 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: edulearn-api
+  namespace: edulearn
+  labels:
+    release: kube-prometheus-stack   # harus cocok dengan selector Prometheus
+spec:
+  selector:
+    matchLabels:
+      app: edulearn-api
+  endpoints:
+    - port: http
+      path: /metrics
+      interval: 15s

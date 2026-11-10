@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: edulearn
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/OWNER/cloud-capstone-team.git
+    targetRevision: main
+    path: 04-platform-kubernetes/manifests
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: edulearn
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
